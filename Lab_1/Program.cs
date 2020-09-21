@@ -6,8 +6,9 @@ namespace Lab_1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            My_Class.ShowHello();
+            #region First-Demo
+            Console.WriteLine("Hello World!"); 
+            #endregion
         }
     }
 }
