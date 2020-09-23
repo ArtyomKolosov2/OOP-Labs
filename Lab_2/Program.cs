@@ -15,6 +15,16 @@ namespace Lab_2
                 new WrappedBool(),
                 new WrappedSbyte(),
                 new WrappedShort(),
+                new WrappedChar(),
+                new WrappedFloat(),
+                new WrappedDouble(),
+                new WrappedDecimal(),
+                new WrappedUint(),
+                new WrappedUlong(),
+                new WrappedUshort(),
+                new WrappedObject(),
+                new WrappedString(),
+                new WrappedLong(),
             };
             ShowTypeInfoService.ShowTypeCollectionInfo(wrappedPrimitives);
             
