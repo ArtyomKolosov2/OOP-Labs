@@ -8,30 +8,29 @@ namespace Lab_2
     {
         static void Main(string[] args)
         {
+            Console.Title = "Data types in .Net and C#";
             List<IWrappedPrimitiveInfo> wrappedPrimitives = new List<IWrappedPrimitiveInfo>()
-            {
-                new WrappedInt(),
-                new WrappedByte(),
+            {                
                 new WrappedBool(),
                 new WrappedSbyte(),
-                new WrappedShort(),
+                new WrappedByte(),
                 new WrappedChar(),
+                new WrappedUshort(),
+                new WrappedShort(),
+                new WrappedInt(),
+                new WrappedUint(),
+                new WrappedUlong(),
+                new WrappedLong(),
                 new WrappedFloat(),
                 new WrappedDouble(),
                 new WrappedDecimal(),
-                new WrappedUint(),
-                new WrappedUlong(),
-                new WrappedUshort(),
                 new WrappedObject(),
                 new WrappedString(),
-                new WrappedLong(),
+                
             };
             ShowTypeInfoService.ShowTypeCollectionInfo(wrappedPrimitives);
-            
         }
     }
-
-    
     public static class ShowTypeInfoService
     {
         public static void ShowTypeInfo<T>(T type) where T : IWrappedPrimitiveInfo
