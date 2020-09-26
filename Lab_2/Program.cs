@@ -10,7 +10,7 @@ namespace Lab_2
         {
             Console.Title = "Data types in .Net and C#";
             List<IWrappedPrimitiveInfo> wrappedPrimitives = new List<IWrappedPrimitiveInfo>()
-            {                
+            {        
                 new WrappedBool(),
                 new WrappedSbyte(),
                 new WrappedByte(),
@@ -31,6 +31,9 @@ namespace Lab_2
             ShowTypeInfoService.ShowTypeCollectionInfo(wrappedPrimitives);
         }
     }
+
+    //+-*/%| || & && ^ ? ?? !~~ = == != += -= *= /= %= => () <- -> ++ --  as instanceOf() GetType() typeof
+    //byte short char int float double decimal bool long
     public static class ShowTypeInfoService
     {
         public static void ShowTypeInfo<T>(T type) where T : IWrappedPrimitiveInfo

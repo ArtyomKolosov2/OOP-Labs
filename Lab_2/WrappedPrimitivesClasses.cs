@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Lab_2
@@ -10,6 +11,9 @@ namespace Lab_2
 
         public string GetMainTypeInfo()
         {
+            var fields = Value.GetType().GetFields();
+            var x = fields.FirstOrDefault(x => x.Name == "MinValue");
+            
             return $"Type = {Value.GetType()}, Size = 4 bytes | MinValue = {int.MinValue}, MaxValue = {int.MaxValue}";
         }
     }
