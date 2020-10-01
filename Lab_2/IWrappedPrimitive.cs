@@ -6,6 +6,6 @@ namespace Lab_2
 {
     public interface IWrappedPrimitiveInfo
     {
-        string GetMainTypeInfo();
+        void ShowMainTypeInfo();
     }
 }

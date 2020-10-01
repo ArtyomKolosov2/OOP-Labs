@@ -1,160 +1,96 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 
 namespace Lab_2
 { 
-    public class WrappedInt : IWrappedPrimitiveInfo, IValueHolder<int>
+    public class WrappedPrimitive<T> : IWrappedPrimitiveInfo where T : struct
     {
-        public int Value { get; set; } = default;
 
-        public string GetMainTypeInfo()
+        public T ValueOne { get; set; } = default;
+        public T ValueTwo { get; set; } = default;
+
+        public WrappedPrimitive(T one, T two)
         {
-            var fields = Value.GetType().GetFields();
-            var x = fields.FirstOrDefault(x => x.Name == "MinValue");
+            ValueOne = one;
+            ValueTwo = two;
+        }
+        public WrappedPrimitive() { }
+        public void ShowMainTypeInfo()
+        {
+            int amount = 50;
+            string splitter = "=";
+            Type type = typeof(T);
+            Program.Center(amount, $"Type = {type.Name}", splitter);
+            Func<string>[] actions = new Func<string>[]
+            {
+                () => Add(ValueOne, ValueTwo),
+                () => Divide(ValueOne, ValueTwo),
+                () => Multiply(ValueOne, ValueTwo),
+                () => Minus(ValueOne, ValueTwo),
+                () => DivMod(ValueOne, ValueTwo),
+            };
+            foreach (var action in actions)
+            {
+                try
+                {
+                    Console.WriteLine(action?.Invoke());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
             
-            return $"Type = {Value.GetType()}, Size = 4 bytes | MinValue = {int.MinValue}, MaxValue = {int.MaxValue}";
         }
-    }
-
-    public class WrappedByte : IWrappedPrimitiveInfo, IValueHolder<byte>
-    {
-        public byte Value { get; set; } = default;
-
-        public string GetMainTypeInfo()
+        public static string Add(T a, T b)
         {
-            return $"Type = {Value.GetType()}, Size = 1 bytes | MinValue = {byte.MinValue}, MaxValue = {byte.MaxValue}";
+            var paramA = Expression.Parameter(typeof(T), "a");
+            var paramB = Expression.Parameter(typeof(T), "b");
+            BinaryExpression body = Expression.Add(paramA, paramB);
+            Func<T, T, T> add = Expression.Lambda<Func<T, T, T>>(body, paramA, paramB).Compile();
+            return $"{a} + {b} = {add(a,b)}";
         }
-    }
 
-    public class WrappedBool : IWrappedPrimitiveInfo, IValueHolder<bool>
-    {
-        public bool Value { get; set; } = default;
-
-        public string GetMainTypeInfo()
+        public static string Divide(T a, T b)
         {
-            return $"Type = {Value.GetType()}, Size = 1 bytes | MinValue = false, MaxValue = true";
+            var paramA = Expression.Parameter(typeof(T), "a");
+            var paramB = Expression.Parameter(typeof(T), "b");
+            BinaryExpression body = Expression.Divide(paramA, paramB);
+            Func<T, T, T> divide = Expression.Lambda<Func<T, T, T>>(body, paramA, paramB).Compile();
+            return $"{a} / {b} = {divide(a, b)}";
         }
-    }
 
-    public class WrappedSbyte : IWrappedPrimitiveInfo, IValueHolder<sbyte>
-    {
-        public sbyte Value { get; set; } = default;
-
-        public string GetMainTypeInfo()
+        public static string Multiply(T a, T b)
         {
-            return $"Type = {Value.GetType()}, Size = 1 bytes | MinValue = {sbyte.MinValue}, MaxValue = {sbyte.MaxValue}";
+            var paramA = Expression.Parameter(typeof(T), "a");
+            var paramB = Expression.Parameter(typeof(T), "b");
+            BinaryExpression body = Expression.Multiply(paramA, paramB);
+            Func<T, T, T> multi = Expression.Lambda<Func<T, T, T>>(body, paramA, paramB).Compile();
+            return $"{a} * {b} = {multi(a, b)}";
         }
-    }
 
-    public class WrappedShort : IWrappedPrimitiveInfo, IValueHolder<short>
-    {
-        public short Value { get; set; } = default;
-
-        public string GetMainTypeInfo()
+        public static string Minus(T a, T b)
         {
-            return $"Type = {Value.GetType()}, Size = 2 bytes | MinValue = {short.MinValue}, MaxValue = {short.MaxValue}";
+            var paramA = Expression.Parameter(typeof(T), "a");
+            var paramB = Expression.Parameter(typeof(T), "b");
+            BinaryExpression body = Expression.Subtract(paramA, paramB);
+            Func<T, T, T> minus = Expression.Lambda<Func<T, T, T>>(body, paramA, paramB).Compile();
+            return $"{a} - {b} = {minus(a, b)}";
         }
-    }
 
-    public class WrappedUshort : IWrappedPrimitiveInfo, IValueHolder<ushort>
-    {
-        public ushort Value { get; set; } = default;
-
-        public string GetMainTypeInfo()
+        public static string DivMod(T a, T b)
         {
-            return $"Type = {Value.GetType()}, Size = 2 bytes | MinValue = {ushort.MinValue}, MaxValue = {ushort.MaxValue}";
+            var paramA = Expression.Parameter(typeof(T), "a");
+            var paramB = Expression.Parameter(typeof(T), "b");
+            BinaryExpression body = Expression.Modulo(paramA, paramB);
+            Func<T, T, T> divMod = Expression.Lambda<Func<T, T, T>>(body, paramA, paramB).Compile();
+            return $"{a} % {b} = {divMod(a, b)}";
         }
-    }
-    public class WrappedUint : IWrappedPrimitiveInfo, IValueHolder<uint>
-    {
-        public uint Value { get; set; } = default;
 
-        public string GetMainTypeInfo()
-        {
-            return $"Type = {Value.GetType()}, Size = 4 bytes | MinValue = {uint.MinValue}, MaxValue = {uint.MaxValue}";
-        }
-    }
-    public class WrappedLong : IWrappedPrimitiveInfo, IValueHolder<long>
-    {
-        public long Value { get; set; } = default;
-
-        public string GetMainTypeInfo()
-        {
-            return $"Type = {Value.GetType()}, Size = 8 bytes | MinValue = {long.MinValue}, MaxValue = {long.MaxValue}";
-        }
     }
 
-    public class WrappedUlong : IWrappedPrimitiveInfo, IValueHolder<ulong>
-    {
-        public ulong Value { get; set; } = default;
-
-        public string GetMainTypeInfo()
-        {
-            return $"Type = {Value.GetType()}, Size = 8 bytes | MinValue = {ulong.MinValue}, MaxValue = {ulong.MaxValue}";
-        }
-    }
-
-    public class WrappedFloat : IWrappedPrimitiveInfo, IValueHolder<float>
-    {
-        public float Value { get; set; } = default;
-
-        public string GetMainTypeInfo()
-        {
-            return $"Type = {Value.GetType()}, Size = 4 bytes | MinValue = {float.MinValue}, MaxValue = {float.MaxValue}\n";
-        }
-    }
-
-    public class WrappedDouble : IWrappedPrimitiveInfo, IValueHolder<double>
-    {
-        public double Value { get; set; } = default;
-
-        public string GetMainTypeInfo()
-        {
-            return $"Type = {Value.GetType()}, Size = 8 bytes | MinValue = {double.MinValue}, MaxValue = {double.MaxValue}";
-        }
-    }
-
-    public class WrappedDecimal : IWrappedPrimitiveInfo, IValueHolder<decimal>
-    {
-        public decimal Value { get; set; } = default;
-
-        public string GetMainTypeInfo()
-        {
-            return $"Type = {Value.GetType()}, Size = 16 bytes | MinValue = {decimal.MinValue}, MaxValue = {decimal.MaxValue}";
-        }
-    }
-
-    public class WrappedChar : IWrappedPrimitiveInfo, IValueHolder<char>
-    {
-        public char Value { get; set; } = default;
-
-        public string GetMainTypeInfo()
-        {
-            return $"Type = {Value.GetType()}, Size = 2 bytes | MinValue = {(int)char.MinValue}, MaxValue = {(int)char.MaxValue}";
-        }
-    }
-
-    public class WrappedString : IWrappedPrimitiveInfo, IValueHolder<string>
-    {
-        public string Value { get; set; } = string.Empty;
-
-        public string GetMainTypeInfo()
-        {
-            return $"Type = {Value.GetType()}, Size = N/A";
-        }
-    }
-
-    public class WrappedObject : IWrappedPrimitiveInfo, IValueHolder<object>
-    {
-        public object Value { get; set; } = new object();
-
-        public string GetMainTypeInfo()
-        {
-            return $"Type = {Value.GetType()}, Size = N/A";
-        }
-    }
-
-    
 }
