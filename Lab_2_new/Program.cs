@@ -26,6 +26,9 @@ namespace Lab_2_new
                     case "2":
                         Task2.StartTask();
                         break;
+                    case "3":
+                        Task3.StartTask();
+                        break;
                     case "exit":
                         IsRunning = false;
                         break;
