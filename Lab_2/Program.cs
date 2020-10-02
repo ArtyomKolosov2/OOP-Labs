@@ -12,7 +12,7 @@ namespace Lab_2
             List<IWrappedPrimitiveInfo> wrappedPrimitives = new List<IWrappedPrimitiveInfo>()
             {        
                 new WrappedPrimitive<int>(10, 2),
-                new WrappedPrimitive<double>(10, 2),
+                new WrappedPrimitive<double>(10d, 2d),
                 new WrappedPrimitive<short>(10, 2),
                 new WrappedPrimitive<char>('x', 'f'),
                 new WrappedPrimitive<long>(10000, 432),

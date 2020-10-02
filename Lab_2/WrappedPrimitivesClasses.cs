@@ -21,6 +21,7 @@ namespace Lab_2
         public WrappedPrimitive() { }
         public void ShowMainTypeInfo()
         {
+            
             int amount = 50;
             string splitter = "=";
             Type type = typeof(T);
@@ -32,6 +33,12 @@ namespace Lab_2
                 () => Multiply(ValueOne, ValueTwo),
                 () => Minus(ValueOne, ValueTwo),
                 () => DivMod(ValueOne, ValueTwo),
+                () => OR(ValueOne, ValueTwo),
+                () => OrElse(ValueOne, ValueTwo),
+                () => And(ValueOne, ValueTwo),
+                () => AndAlso(ValueOne, ValueTwo),
+                () => Xor(ValueOne, ValueTwo),
+                () => Ternary(ValueOne, ValueTwo)
             };
             foreach (var action in actions)
             {
@@ -41,11 +48,21 @@ namespace Lab_2
                 }
                 catch (Exception ex)
                 {
+                    ConsoleColor defaultColor = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(ex.Message);
+                    Console.ForegroundColor = defaultColor;
                 }
             }
-            
+            //?? !~~ = == != += -= *= /= %= => () < - -> ++-- as instanceOf() GetType() typeof
+
+
         }
+        public static string Ternary(dynamic c1, dynamic c2)
+        {
+            return $"c1 > c2 ? true : false = {(c1>c2?true:false)}";
+        }
+
         public static string Add(T a, T b)
         {
             var paramA = Expression.Parameter(typeof(T), "a");
@@ -90,6 +107,59 @@ namespace Lab_2
             Func<T, T, T> divMod = Expression.Lambda<Func<T, T, T>>(body, paramA, paramB).Compile();
             return $"{a} % {b} = {divMod(a, b)}";
         }
+
+        public static string OR(T a, T b)
+        {
+            var paramA = Expression.Parameter(typeof(T), "a");
+            var paramB = Expression.Parameter(typeof(T), "b");
+            BinaryExpression body = Expression.Or(paramA, paramB);
+            Func<T, T, T> orFunc = Expression.Lambda<Func<T, T, T>>(body, paramA, paramB).Compile();
+            return $"{a} | {b} = {orFunc(a, b)}";
+        }
+
+        public static string OrElse(T a, T b)
+        {
+            var paramA = Expression.Parameter(typeof(T), "a");
+            var paramB = Expression.Parameter(typeof(T), "b");
+            BinaryExpression body = Expression.OrElse(paramA, paramB);
+            Func<T, T, T> orElse = Expression.Lambda<Func<T, T, T>>(body, paramA, paramB).Compile();
+            return $"{a} || {b} = {orElse(a, b)}";
+        }
+        public static string And(T a, T b)
+        {
+            var paramA = Expression.Parameter(typeof(T), "a");
+            var paramB = Expression.Parameter(typeof(T), "b");
+            BinaryExpression body = Expression.And(paramA, paramB);
+            Func<T, T, T> And = Expression.Lambda<Func<T, T, T>>(body, paramA, paramB).Compile();
+            return $"{a} & {b} = {And(a, b)}";
+        }
+
+        public static string AndAlso(T a, T b)
+        {
+            var paramA = Expression.Parameter(typeof(T), "a");
+            var paramB = Expression.Parameter(typeof(T), "b");
+            BinaryExpression body = Expression.AndAlso(paramA, paramB);
+            Func<T, T, T> andAlso = Expression.Lambda<Func<T, T, T>>(body, paramA, paramB).Compile();
+            return $"{a} && {b} = {andAlso(a, b)}";
+        }
+
+        public static string Xor(T a, T b)
+        {
+            var paramA = Expression.Parameter(typeof(T), "a");
+            var paramB = Expression.Parameter(typeof(T), "b");
+            BinaryExpression body = Expression.ExclusiveOr(paramA, paramB);
+            Func<T, T, T> xor = Expression.Lambda<Func<T, T, T>>(body, paramA, paramB).Compile();
+            return $"{a} ^ {b} = {xor(a, b)}";
+        }
+
+        /*public static string Xor(T a, T b)
+        {
+            var paramA = Expression.Parameter(typeof(T), "a");
+            var paramB = Expression.Parameter(typeof(T), "b");
+            BinaryExpression body = Expression.ExclusiveOr(paramA, paramB);
+            Func<T, T, T> xor = Expression.Lambda<Func<T, T, T>>(body, paramA, paramB).Compile();
+            return $"{a} ^ {b} = {xor(a, b)}";
+        }*/
 
     }
 
