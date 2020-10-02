@@ -5,19 +5,20 @@ namespace Lab_2_new
 {
     class Program
     {
-        
         static void Main(string[] args)
         {
-            bool IsRunning = true;
-            while (IsRunning)
+            while (true)
             {
-                Console.WriteLine
+                IOservice.ShowMessage
                     (
-                    "1 - TaskOne (Конвертация из граммов)\n"+
-                    "2 - TaskTwo (Конвертация байтов в кило, мега, гига)\n" +
-                    "exit - Выход из программы"
+                    "1 - TaskOne (conversion from grams)\n" +
+                    "2 - TaskTwo (converting bytes to kilo, mega, Giga)\n" +
+                    "3 - TaskThree (Centimeters to meters and kilometers)\n" +
+                    "4 - TaskFour (Swap values of variables without using an additional variable)\n" +
+                    "5 - TaskFive (the ratio of the cost of 1 kg of candy to 1 kg of gelatine)\n" +
+                    "exit - Exit the program"
                     );
-                string command = Console.ReadLine();
+                string command = IOservice.GetUserInputStr();
                 switch (command)
                 {
                     case "1":
@@ -29,11 +30,16 @@ namespace Lab_2_new
                     case "3":
                         Task3.StartTask();
                         break;
-                    case "exit":
-                        IsRunning = false;
+                    case "4":
+                        Task4.StartTask();
                         break;
+                    case "5":
+                        Task5.StartTask();
+                        break;
+                    case "exit":
+                        return;                        
                     default:
-                        Console.WriteLine("Unknown command");
+                        IOservice.ShowMessage("Unknown command");
                         break;
                 }
             }

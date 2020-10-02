@@ -15,10 +15,10 @@ namespace Lab_2_new.Tasks
         }
         public static void StartTask()
         {
-            Console.WriteLine("Введите байты: ");
-            if (long.TryParse(Console.ReadLine(), out long bytesAmount))
+            IOservice.ShowMessage("Input bytes: ");
+            if (long.TryParse(IOservice.GetUserInputStr(), out long bytesAmount))
             {
-                Console.WriteLine
+                IOservice.ShowMessage
                 (
                    $"Bytes amount = {bytesAmount}\n" + 
                    $"{GetByteConvertationResult(bytesAmount, BytesCoef.KiloBytes)} kB\n"+
@@ -29,7 +29,7 @@ namespace Lab_2_new.Tasks
             }
             else
             {
-                Console.WriteLine("Error: число введено неправильно!");
+                IOservice.ShowMessage("Error!");
             }
         }
         public static double GetByteConvertationResult(long bytesAmount, BytesCoef coef)

@@ -14,10 +14,10 @@ namespace Lab_2_new.Tasks
         }
         public static void StartTask()
         {
-            Console.WriteLine("Введите граммы: ");
-            if (double.TryParse(Console.ReadLine(), out double grams))
+            IOservice.ShowMessage("Input grams: ");
+            if (double.TryParse(IOservice.GetUserInputStr(), out double grams))
             {
-                Console.WriteLine
+                IOservice.ShowMessage
                 (
                     $"Gramms = {grams}, \n" +
                     $"Kilo = {GetConvertionResult(grams, MassCoef.Kilo)}, \n" +
@@ -27,7 +27,7 @@ namespace Lab_2_new.Tasks
             }
             else
             {
-                Console.WriteLine("Error: число введено неправильно!");
+                IOservice.ShowMessage("Error!");
             }
         }
 

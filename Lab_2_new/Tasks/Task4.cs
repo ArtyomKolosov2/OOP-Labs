@@ -10,11 +10,11 @@ namespace Lab_2_new.Tasks
         {
             int a = 5, 
                 b = 10;
-            Console.WriteLine($"a = {a}, b = {b}");
+            IOservice.ShowMessage($"a = {a}, b = {b}");
             a = a ^ b;
             b = b ^ a;
             a = a ^ b;
-            Console.WriteLine($"Swapped a = {a}, b = {b}");
+            IOservice.ShowMessage($"Swapped a = {a}, b = {b}");
         }
     }
 }

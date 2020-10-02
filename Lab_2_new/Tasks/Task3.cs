@@ -11,18 +11,18 @@ namespace Lab_2_new.Tasks
         }
         public static void StartTask()
         {
-            Console.WriteLine("Введите сантиметры: ");
-            if (long.TryParse(Console.ReadLine(), out long SM))
+            IOservice.ShowMessage("Input cantimetres: ");
+            if (long.TryParse(IOservice.GetUserInputStr(), out long SM))
             {
-                Console.WriteLine
+                IOservice.ShowMessage
                 (
-                   $"Метров {ConvertDistance(SM, DistanceCoef.inMetr)} в {SM} см\n" +
-                   $"Километров {ConvertDistance(SM, DistanceCoef.inKilometr)} в {SM} см\n" 
+                   $"Metres {ConvertDistance(SM, DistanceCoef.inMetr)} to {SM} cm\n" +
+                   $"Kilometres {ConvertDistance(SM, DistanceCoef.inKilometr)} to {SM} сm\n" 
                 );
             }
             else
             {
-                Console.WriteLine("Error: число введено неправильно!");
+                IOservice.ShowMessage("Error!");
             }
         }
         public static double ConvertDistance(long SM, DistanceCoef coef)
