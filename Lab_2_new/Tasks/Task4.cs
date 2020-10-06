@@ -6,7 +6,7 @@ namespace Lab_2_new.Tasks
 {
     public static class Task4
     {
-        public static void StartTask()
+        public static void StartTaskOne()
         {
             int a = 5, 
                 b = 10;
@@ -14,6 +14,11 @@ namespace Lab_2_new.Tasks
             a = a ^ b;
             b = b ^ a;
             a = a ^ b;
+            IOservice.ShowMessage($"Swapped a = {a}, b = {b}");
+            IOservice.ShowMessage($"a = {a}, b = {b}");
+            a = a + b; 
+            b = a - b;
+            a = a - b;
             IOservice.ShowMessage($"Swapped a = {a}, b = {b}");
         }
     }

@@ -34,6 +34,35 @@ namespace Lab_2
                 () => GetStringBinaryOperator(ValueOne, ValueTwo, "/", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 / c2)),
                 () => GetStringBinaryOperator(ValueOne, ValueTwo, "%", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 % c2)),
                 () => GetStringBinaryOperator(ValueOne, ValueTwo, "&", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 & c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "|", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 | c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "&&", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 && c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "||", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 || c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "^", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 ^ c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, ">", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 > c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "<", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 < c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "<=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 <= c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, ">=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 >= c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "==", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 == c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "!=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 != c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, ">>", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 >> c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "<<", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 << c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 = c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "+=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 += c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "-=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 -= c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "*=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 *= c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "/=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 /= c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "%=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 %= c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, ">>=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 >>= c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "<<=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 <<= c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "&=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 &= c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "|=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 |= c2)),
+                () => Ternary(ValueOne, ValueTwo),
+                () => GetStringUnaryOperator(ValueOne, "~", new Func<dynamic, dynamic>((c1) => ~c1)),
+                () => GetStringUnaryOperator(ValueOne, "!", new Func<dynamic, dynamic>((c1) => !c1)),
+                () => GetStringUnaryOperator(ValueOne, "++", new Func<dynamic, dynamic>((c1) => ++c1)),
+                () => GetStringUnaryOperator(ValueOne, "++", new Func<dynamic, dynamic>((c1) => c1++), IsPostFix:true),
+                () => GetStringUnaryOperator(ValueOne, "--", new Func<dynamic, dynamic>((c1) => --c1)),
+                () => GetStringUnaryOperator(ValueOne, "++", new Func<dynamic, dynamic>((c1) => c1--), IsPostFix:true),
                 
             };
             foreach (var action in actions)
@@ -50,7 +79,7 @@ namespace Lab_2
                     Console.ForegroundColor = defaultColor;
                 }
             }
-            //?? !~~ = == != += -= *= /= %= => () < - -> ++-- as instanceOf() GetType() typeof
+            //?? => () < - -> ++ -- as instanceOf() GetType() typeof
 
 
         }
@@ -62,6 +91,11 @@ namespace Lab_2
         public static string GetStringBinaryOperator(dynamic c1, dynamic c2, string opStrRepr, Func<dynamic, dynamic, dynamic> func)
         {
             return $"{c1} {opStrRepr} {c2} = {func?.Invoke(c1, c2)}";
+        }
+
+        public static string GetStringUnaryOperator(dynamic c1, string opStrRepr, Func<dynamic, dynamic> func, bool IsPostFix = false)
+        {
+            return IsPostFix? $"{c1}{opStrRepr} = {func?.Invoke(c1)}": $"{opStrRepr}{c1} = {func?.Invoke(c1)}";
         }
     }
 

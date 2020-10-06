@@ -6,12 +6,6 @@ namespace Lab_2_new.Tasks
 {
     public static class Task1
     {
-        public enum MassCoef : int
-        {
-            Kilo = 1000,
-            Centner = Kilo * 100,
-            Ton = Kilo * 1000
-        }
         public static void StartTask()
         {
             IOservice.ShowMessage("Input grams: ");
@@ -20,9 +14,9 @@ namespace Lab_2_new.Tasks
                 IOservice.ShowMessage
                 (
                     $"Gramms = {grams}, \n" +
-                    $"Kilo = {GetConvertionResult(grams, MassCoef.Kilo)}, \n" +
-                    $"Centners = {GetConvertionResult(grams, MassCoef.Centner)}\n" +
-                    $"Tons = {GetConvertionResult(grams, MassCoef.Ton)}\n"
+                    $"Kilo = {Converter.GetConvertionResult(grams, (int)ConvertCoefEnum.Kilo)}, \n" +
+                    $"Centners = {Converter.GetConvertionResult(grams, (int)ConvertCoefEnum.Centner)}\n" +
+                    $"Tons = {Converter.GetConvertionResult(grams, (int)ConvertCoefEnum.Ton)}\n"
                 );
             }
             else
@@ -31,10 +25,7 @@ namespace Lab_2_new.Tasks
             }
         }
 
-        static double GetConvertionResult(double grams, MassCoef coef)
-        {
-            return grams / (int)coef;
-        }
+        
 
     }
 }
