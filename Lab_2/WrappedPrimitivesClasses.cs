@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Lab_2
 { 
-    public class WrappedPrimitive<T> : IWrappedPrimitiveInfo where T : struct
+    public class WrappedPrimitive<T> : IOperationInfo where T : struct
     {
 
         public T ValueOne { get; set; } = default;
@@ -19,9 +19,8 @@ namespace Lab_2
             ValueTwo = two;
         }
         public WrappedPrimitive() { }
-        public void ShowMainTypeInfo()
-        {
-            
+        public Func<string>[] GetFuncsWithOperationStringResult()
+        {         
             int amount = 50;
             string splitter = "=";
             Type type = typeof(T);
@@ -65,28 +64,13 @@ namespace Lab_2
                 () => GetStringUnaryOperator(ValueOne, "++", new Func<dynamic, dynamic>((c1) => c1--), IsPostFix:true),
                 
             };
-            foreach (var action in actions)
-            {
-                try
-                {
-                    Console.WriteLine(action?.Invoke());
-                }
-                catch (Exception ex)
-                {
-                    ConsoleColor defaultColor = Console.ForegroundColor;
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(ex.Message);
-                    Console.ForegroundColor = defaultColor;
-                }
-            }
-            //?? => () < - -> ++ -- as instanceOf() GetType() typeof
+            return actions;
+            
+            //?? () < - -> ++ -- as instanceOf() GetType() typeof
 
 
         }
-        public static string Ternary(dynamic c1, dynamic c2)
-        {
-            return $"c1 > c2 ? true : false = {(c1>c2?true:false)}";
-        }
+        public static string Ternary(dynamic c1, dynamic c2) => $"c1 > c2 ? true : false = {(c1 > c2 ? true : false)}";
 
         public static string GetStringBinaryOperator(dynamic c1, dynamic c2, string opStrRepr, Func<dynamic, dynamic, dynamic> func)
         {

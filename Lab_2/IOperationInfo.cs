@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Lab_2
 {
-    public interface IWrappedPrimitiveInfo
+    public interface IOperationInfo
     {
-        void ShowMainTypeInfo();
+        public Func<string>[] GetFuncsWithOperationStringResult();
     }
 }

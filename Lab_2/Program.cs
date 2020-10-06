@@ -9,7 +9,7 @@ namespace Lab_2
         static void Main(string[] args)
         {
             Console.Title = "Data types in .Net and C#";
-            List<IWrappedPrimitiveInfo> wrappedPrimitives = new List<IWrappedPrimitiveInfo>()
+            List<IOperationInfo> wrappedPrimitives = new List<IOperationInfo>()
             {        
                 new WrappedPrimitive<int>(10, 2),
                 new WrappedPrimitive<double>(10d, 2d),
@@ -21,7 +21,8 @@ namespace Lab_2
                 new WrappedPrimitive<float>(5.3f, 4f),
                 new WrappedPrimitive<byte>(125, 5),
             };
-            ShowTypeInfoService.ShowTypeCollectionInfo(wrappedPrimitives);
+            ShowTypeInfoService.GetTypeOperationFuncsWithResultString(wrappedPrimitives);
+            Console.WriteLine();
         }
 
         public static void Center(int amount, string msg, string symbol)
@@ -47,15 +48,33 @@ namespace Lab_2
     //byte short char int float double decimal bool long
     public static class ShowTypeInfoService
     {
-        public static void ShowTypeInfo<T>(T type) where T : IWrappedPrimitiveInfo
-        {
-            type.ShowMainTypeInfo();
-        }
-        public static void ShowTypeCollectionInfo<T>(T typeCollection) where T : IEnumerable<IWrappedPrimitiveInfo>
+        public static void GetTypeOperationFuncsWithResultString<T>(T typeCollection) where T : IEnumerable<IOperationInfo>
         {
             foreach (var type in typeCollection)
             {
-                ShowTypeInfo(type);
+                ShowArrayWithFuncOperationsResultString(type.GetFuncsWithOperationStringResult());
+            }
+        }
+        public static void ShowFuncOperationResultString(Func<string> func)
+        {
+            Console.WriteLine(func?.Invoke());
+        }
+
+        public static void ShowArrayWithFuncOperationsResultString(Func<string> [] funcs)
+        {
+            foreach(var func in funcs)
+            {
+                try
+                {
+                    ShowFuncOperationResultString(func);
+                }
+                catch (Exception ex)
+                {
+                    ConsoleColor defaultColor = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(ex.Message);
+                    Console.ForegroundColor = defaultColor;
+                }
             }
         }
     }
