@@ -8,6 +8,7 @@ namespace Lab_2
     {
         static void Main(string[] args)
         {
+            int centerAmount = 50;
             Console.Title = "Data types in .Net and C#";
             List<IOperationInfo> wrappedPrimitives = new List<IOperationInfo>()
             {        
@@ -22,6 +23,9 @@ namespace Lab_2
                 new WrappedPrimitive<byte>(125, 5),
             };
             ShowTypeInfoService.GetTypeOperationFuncsWithResultString(wrappedPrimitives);
+            Center(centerAmount, "Other operators", "=");
+            Console.WriteLine($"(2 + 2) * 2 = {(2 + 2) * 2}");
+            Console.WriteLine($"2 + 2 * 2 = {2 + 2 * 2}");
             Console.WriteLine();
         }
 

@@ -36,6 +36,7 @@ namespace Lab_2
                 () => GetStringBinaryOperator(ValueOne, ValueTwo, "|", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 | c2)),
                 () => GetStringBinaryOperator(ValueOne, ValueTwo, "&&", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 && c2)),
                 () => GetStringBinaryOperator(ValueOne, ValueTwo, "||", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 || c2)),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "??", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 ?? c2)),
                 () => GetStringBinaryOperator(ValueOne, ValueTwo, "^", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 ^ c2)),
                 () => GetStringBinaryOperator(ValueOne, ValueTwo, ">", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 > c2)),
                 () => GetStringBinaryOperator(ValueOne, ValueTwo, "<", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 < c2)),
@@ -55,22 +56,32 @@ namespace Lab_2
                 () => GetStringBinaryOperator(ValueOne, ValueTwo, "<<=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 <<= c2)),
                 () => GetStringBinaryOperator(ValueOne, ValueTwo, "&=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 &= c2)),
                 () => GetStringBinaryOperator(ValueOne, ValueTwo, "|=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 |= c2)),
-                () => Ternary(ValueOne, ValueTwo),
+                () => GetStringBinaryOperator(ValueOne, ValueTwo, "??=", new Func<dynamic, dynamic, dynamic>((c1, c2) => c1 ??= c2)),
+                () => GetStringTernary(ValueOne, ValueTwo),
                 () => GetStringUnaryOperator(ValueOne, "~", new Func<dynamic, dynamic>((c1) => ~c1)),
                 () => GetStringUnaryOperator(ValueOne, "!", new Func<dynamic, dynamic>((c1) => !c1)),
                 () => GetStringUnaryOperator(ValueOne, "++", new Func<dynamic, dynamic>((c1) => ++c1)),
                 () => GetStringUnaryOperator(ValueOne, "++", new Func<dynamic, dynamic>((c1) => c1++), IsPostFix:true),
                 () => GetStringUnaryOperator(ValueOne, "--", new Func<dynamic, dynamic>((c1) => --c1)),
-                () => GetStringUnaryOperator(ValueOne, "++", new Func<dynamic, dynamic>((c1) => c1--), IsPostFix:true),
+                () => GetStringUnaryOperator(ValueOne, "--", new Func<dynamic, dynamic>((c1) => c1--), IsPostFix:true),
+                () => $"GetType() = {ValueOne.GetType()}",
+                () => $"c1 is dynamic = {ValueOne is dynamic}",
+                () => $"c2 is object = {ValueOne is object}",
+                () => $"c2 is int = {ValueOne is int}",
+                
                 
             };
             return actions;
             
-            //?? () < - -> ++ -- as instanceOf() GetType() typeof
+            // <- -> as
 
 
         }
-        public static string Ternary(dynamic c1, dynamic c2) => $"c1 > c2 ? true : false = {(c1 > c2 ? true : false)}";
+        public static string GetTypeName(object c1)
+        {
+            return c1.GetType().ToString();
+        }
+        public static string GetStringTernary(dynamic c1, dynamic c2) => $"c1 > c2 ? true : false = {(c1 > c2 ? true : false)}";
 
         public static string GetStringBinaryOperator(dynamic c1, dynamic c2, string opStrRepr, Func<dynamic, dynamic, dynamic> func)
         {
