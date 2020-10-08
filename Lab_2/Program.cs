@@ -14,11 +14,11 @@ namespace Lab_2
             List<IOperationInfo> wrappedPrimitives = new List<IOperationInfo>()
             {        
                 new WrappedPrimitive<int>(10, 2),
-                new WrappedPrimitive<double>(10d, 2d),
+                new WrappedPrimitive<double>(10.0, 2d),
                 new WrappedPrimitive<short>(10, 2),
                 new WrappedPrimitive<char>('x', 'f'),
                 new WrappedPrimitive<long>(10000, 432),
-                new WrappedPrimitive<decimal>(343212.23424423m, 432324.23432m),
+                new WrappedPrimitive<decimal>(312.23424423m, 424.23432m),
                 new WrappedPrimitive<bool>(true, false),
                 new WrappedPrimitive<float>(5.3f, 4f),
                 new WrappedPrimitive<byte>(125, 5),

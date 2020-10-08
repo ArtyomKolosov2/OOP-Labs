@@ -20,7 +20,10 @@ namespace Lab_2
         }
         public WrappedPrimitive() { }
         public Func<string>[] GetFuncsWithOperationStringResult()
-        {         
+        {
+            dynamic f;
+            f = "d";
+            f = 1;
             int amount = 50;
             string splitter = "=";
             Type type = typeof(T);
@@ -68,18 +71,12 @@ namespace Lab_2
                 () => $"c1 is dynamic = {ValueOne is dynamic}",
                 () => $"c2 is object = {ValueOne is object}",
                 () => $"c2 is int = {ValueOne is int}",
-                
-                
             };
             return actions;
             
             // <- -> as
 
 
-        }
-        public static string GetTypeName(object c1)
-        {
-            return c1.GetType().ToString();
         }
         public static string GetStringTernary(dynamic c1, dynamic c2) => $"c1 > c2 ? true : false = {(c1 > c2 ? true : false)}";
 
