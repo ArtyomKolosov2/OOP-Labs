@@ -15,10 +15,10 @@ namespace Lab_2_new.Tasks
                 IOservice.ShowMessage
                 (
                    $"Bytes amount = {bytesAmount}\n" + 
-                   $"{Converter.GetConvertionResult(bytesAmount,  Pow(2, (int)ConvertCoefEnum.KiloBytes))} kB\n"+
-                   $"{Converter.GetConvertionResult(bytesAmount, Pow(2,(int)ConvertCoefEnum.MegaBytes))} mB\n"+
-                   $"{Converter.GetConvertionResult(bytesAmount, Pow(2,(int)ConvertCoefEnum.GigaBytes))} gB\n"+
-                   $"{Converter.GetConvertionResult(bytesAmount, Pow(2,(int)ConvertCoefEnum.TeraBytes))} tB\n"
+                   $"{Converter.GetConvertionResult(bytesAmount,  (int)Pow(2, (int)ConvertCoefEnum.KiloBytes))} kB\n"+
+                   $"{Converter.GetConvertionResult(bytesAmount, (int)Pow(2,(int)ConvertCoefEnum.MegaBytes))} mB\n"+
+                   $"{Converter.GetConvertionResult(bytesAmount, (int)Pow(2,(int)ConvertCoefEnum.GigaBytes))} gB\n"+
+                   $"{Converter.GetConvertionResult(bytesAmount, (int)Pow(2,(int)ConvertCoefEnum.TeraBytes))} tB\n"
                 );
             }
             else

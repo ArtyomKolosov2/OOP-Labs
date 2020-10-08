@@ -6,7 +6,7 @@ namespace Lab_2_new.Tasks
 {
     public static class Task4
     {
-        public static void StartTaskOne()
+        public static void StartTask()
         {
             int a = 5, 
                 b = 10;

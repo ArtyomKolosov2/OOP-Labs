@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab_3;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -24,6 +25,14 @@ namespace Lab_2
             };
             ShowTypeInfoService.GetTypeOperationFuncsWithResultString(wrappedPrimitives);
             Center(centerAmount, "Other operators", "=");
+            unsafe
+            {
+                ExampleStruct exampleStruct = new ExampleStruct();
+                ExampleStruct* pointer = &exampleStruct;
+                Console.WriteLine("ExampleStruct* pointer = &exampleStruct;");
+                pointer->integerValue = 10;
+                Console.WriteLine($"pointer->integerValue = {pointer->integerValue}");
+            };
             Console.WriteLine($"(2 + 2) * 2 = {(2 + 2) * 2}");
             Console.WriteLine($"2 + 2 * 2 = {2 + 2 * 2}");
             Console.WriteLine();

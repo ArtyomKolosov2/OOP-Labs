@@ -11,11 +11,6 @@ namespace Lab_2_new.Tasks
             return grams / coef;
         }
 
-        public static double GetConvertionResult(double grams, double coef)
-        {
-            return grams / coef;
-        }
-
         public static double GetConvertionResult(double grams, ConvertCoefEnum coef)
         {
             return grams / (int)coef;
