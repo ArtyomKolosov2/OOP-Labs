@@ -11,8 +11,8 @@ namespace Lab_2_new.Tasks
             {
                 IOservice.ShowMessage
                 (
-                   $"Metres {Converter.GetConvertionResult(SM, ConvertCoefEnum.inMetr)} to {SM} cm\n" +
-                   $"Kilometres {Converter.GetConvertionResult(SM, ConvertCoefEnum.inKilometr)} to {SM} сm\n" 
+                   $"Metres {Converter.GetConvertionResult(SM, (int)ConvertCoefEnum.inMetr)} to {SM} cm\n" +
+                   $"Kilometres {Converter.GetConvertionResult(SM, (int)ConvertCoefEnum.inKilometr)} to {SM} сm\n" 
                 );
             }
             else

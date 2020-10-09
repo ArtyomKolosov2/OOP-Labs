@@ -24,8 +24,8 @@ namespace Lab_2_new.Tasks
             var A = X * XinKg;
             var B = Y * YinKg;
 
-            IOservice.ShowMessage($"Во сколько раз Х > Y : {Math.Round(FindMuchMore(X, Y, A, B), 2)}");
-            IOservice.ShowMessage($"Во сколько раз Y > X : {Math.Round(FindMuchMore(Y, X, B, A), 2)}");
+            IOservice.ShowMessage($"Х > Y : {Math.Round(FindMuchMore(X, Y, A, B), 2)}");
+            IOservice.ShowMessage($"Y > X : {Math.Round(FindMuchMore(Y, X, B, A), 2)}");
         }
         private static double FindMuchMore(double X, double Y, double A, double B)
         {
