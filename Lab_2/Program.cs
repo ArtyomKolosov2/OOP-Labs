@@ -31,12 +31,14 @@ namespace Lab_2
                 ExampleStruct* pointer = &exampleStruct;
                 Console.WriteLine("ExampleStruct* pointer = &exampleStruct;");
                 pointer->integerValue = 10;
+                Console.WriteLine(sizeof(ExampleStruct));
                 Console.WriteLine($"pointer->integerValue = {pointer->integerValue}");
             };
             Console.WriteLine($"(2 + 2) * 2 = {(2 + 2) * 2}");
             Console.WriteLine($"2 + 2 * 2 = {2 + 2 * 2}");
             Console.WriteLine();
         }
+        
 
         public static void Center(int amount, string msg, string symbol)
         {

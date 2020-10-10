@@ -21,9 +21,7 @@ namespace Lab_2
         public WrappedPrimitive() { }
         public Func<string>[] GetFuncsWithOperationStringResult()
         {
-            dynamic f;
-            f = "d";
-            f = 1;
+            
             int amount = 50;
             string splitter = "=";
             Type type = typeof(T);
@@ -67,16 +65,14 @@ namespace Lab_2
                 () => GetStringUnaryOperator(ValueOne, "++", new Func<dynamic, dynamic>((c1) => c1++), IsPostFix:true),
                 () => GetStringUnaryOperator(ValueOne, "--", new Func<dynamic, dynamic>((c1) => --c1)),
                 () => GetStringUnaryOperator(ValueOne, "--", new Func<dynamic, dynamic>((c1) => c1--), IsPostFix:true),
+                () => $"default(T) = {default(T)}",
                 () => $"GetType() = {ValueOne.GetType()}",
                 () => $"c1 is dynamic = {ValueOne is dynamic}",
                 () => $"c2 is object = {ValueOne is object}",
                 () => $"c2 is int = {ValueOne is int}",
+                () => $"c1 as object = {ValueOne as object ?? "Not Succesfull"}",
             };
             return actions;
-            
-            // <- -> as
-
-
         }
         public static string GetStringTernary(dynamic c1, dynamic c2) => $"c1 > c2 ? true : false = {(c1 > c2 ? true : false)}";
 
