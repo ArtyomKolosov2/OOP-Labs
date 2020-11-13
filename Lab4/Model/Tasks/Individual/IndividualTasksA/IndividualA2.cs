@@ -8,8 +8,7 @@ using System.Linq;
 namespace Lab4.Model.Tasks.Individual.IndividualTasksA
 {
     class IndividualA2 : ITask, ITaskInfo
-    {
-        //TODO const add
+    { 
         public string Run()
         {
             ExtractForTasks extract = new ExtractForTasks(InputService.GetInstance(), OutputService.GetInstance());

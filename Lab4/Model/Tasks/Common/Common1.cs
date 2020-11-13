@@ -12,9 +12,13 @@ namespace Lab4.Model.Tasks.Common
             ExtractForTasks extract = new ExtractForTasks(InputService.GetInstance(), OutputService.GetInstance());
             return CommonTask1(extract.Common1());
         }
-        public string GetInfo() 
+        public string GetInfo()
         {
             return "Count of dragon heads and eyes:";
+        }
+        private static int countEyes(int head)
+        {
+            return head * 2;
         }
         // Define count of dragon heads and eyes
         public static string CommonTask1(int year)
@@ -39,8 +43,7 @@ namespace Lab4.Model.Tasks.Common
             {
                 throw new ArgumentException("Error, incorrect data, input number more than 0.");
             }
-            int eyes = head * 2;
-            return $"Count heads = {head}, count eyes = {eyes}";
+            return $"Count heads = {head}, count eyes = {countEyes(head)}";
         }
     }
 }

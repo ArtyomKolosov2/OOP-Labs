@@ -19,8 +19,7 @@ namespace Lab4.Model.Tasks.Common
         // The number is a multiple of numbers: 2, 3, 5, 7, 11, 13, 17 и 19:
         public static string CommonTask3(int number)
         {
-            int[] listDividers = new int[] { 2, 3, 5, 7, 11, 13, 17, 19 };
-            return $"The number is a multiple of numbers: 2, 3, 5, 7, 11, 13, 17, 19 = { listDividers.Any(n => number % n == 0)}";
+            return $"The number is a multiple of numbers: 2, 3, 5, 7, 11, 13, 17, 19 = {new int[] { 2, 3, 5, 7, 11, 13, 17, 19 }.Any(n => number % n == 0)}";
         }
     }
 }

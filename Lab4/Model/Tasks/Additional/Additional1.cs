@@ -9,13 +9,10 @@ namespace Lab4.Model.Tasks.Additional
         public string Run()
         {
             ExtractForTasks extract = new ExtractForTasks(InputService.GetInstance(), OutputService.GetInstance());
-            const int Zero = 0,
-                One = 1,
-                Two = 2;
             int[] arrValue = extract.Additional1();
-            int day = arrValue[Zero],
-                mounth = arrValue[One],
-                year = arrValue[Two];
+            int day = arrValue[0],
+                mounth = arrValue[1],
+                year = arrValue[2];
             return AdditionalTask1(day, mounth, year);
         }
         public string GetInfo()
@@ -48,16 +45,12 @@ namespace Lab4.Model.Tasks.Additional
         public static string AdditionalTask1(int day, int mounth, int year)//fix
         {
             int[] arrCountDayInMounth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-            const int Twelve = 12,
-                Thirteen = 13,
-                One = 1;
             // check is leep
             if (IsLeep(year))
             {
                 arrCountDayInMounth[One]++;
             }
-            int i;
-            for (i = 0; i < Twelve; i++)
+            for (var i = 0; i < arrCountDayInMounth.Length; i++)
             {
                 if (++i == mounth && day == arrCountDayInMounth[i])
                 {
@@ -66,11 +59,11 @@ namespace Lab4.Model.Tasks.Additional
                     break;
                 }
             }
-            if (i == Twelve)
+            if (i == 12)
             {
                 day++;
             }
-            if (mounth == Thirteen)
+            if (mounth == 13)
             {
                 mounth = One;
                 year++;

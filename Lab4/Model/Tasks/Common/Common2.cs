@@ -18,13 +18,11 @@ namespace Lab4.Model.Tasks.Common
         }
         public static string CommonTask2(int[] numbers)
         {
-            string resValue = "";
             if (numbers.All(x => x == numbers[0]))
             {
                 return "All values are equal.";
             }
-            resValue = $"Max = {numbers.Max()}, Min = {numbers.Min()}";
-            return resValue;
+            return $"Max = {numbers.Max()}, Min = {numbers.Min()}";
         }
     }
 }
