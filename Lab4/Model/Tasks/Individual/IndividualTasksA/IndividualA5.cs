@@ -33,7 +33,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksA
              };
             if (index < 0 && index > listSurprise.Length)
             {
-                throw new Exception("Error, incorrect data.Transfer number more than 0");
+                throw new ArgumentException("Error, incorrect data.Transfer number more than 0");
             }
             return listSurprise[index];
         }

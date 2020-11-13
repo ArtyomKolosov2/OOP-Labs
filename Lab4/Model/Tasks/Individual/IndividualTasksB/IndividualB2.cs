@@ -29,7 +29,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
                 Ten = 10;
             if (mark < Zero && mark > Ten)
             {
-                throw new Exception("Error, invalid data.Transfer data from 0 to 10");
+                throw new ArgumentException("Error, invalid data.Transfer data from 0 to 10");
             }
             string res = "";
             if (mark >= numbers[Zero] && mark < numbers[Two])

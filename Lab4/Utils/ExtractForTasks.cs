@@ -57,8 +57,8 @@ namespace Lab4.Utils
         {
             _outputService.ShowMessage("Roll the dice:");
             const int CountPoint = 6;
-            int firstDie = rand.Next(CountPoint);
-            int secondDie = rand.Next(CountPoint);
+            int firstDie = rand.Next(1, CountPoint);
+            int secondDie = rand.Next(1, CountPoint);
             int[] arrDies = { firstDie, secondDie };
             return arrDies;
         }

@@ -22,10 +22,9 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksA
         // Individual A4 - Dice
         public static string IndividualTaskA4(int firstNumber, int secondNumber)
         {
-            //TODO fix extractor
             if (firstNumber < 0 && secondNumber < 0)
             {
-                throw new Exception("Error, incorrect data.Input number more than 0");
+                throw new ArgumentException("Error, incorrect data.Input number more than 0");
             }
             return $"On the first die, it fell out - {firstNumber}\nOn the second die, it fell out - {secondNumber}\nResult = {firstNumber + secondNumber}";
         }
