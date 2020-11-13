@@ -2,6 +2,6 @@
 {
     public interface ITask
     {
-        public string Run();
+       public string Run();
     }
 }

@@ -17,38 +17,31 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
             return "An application that outputs a string describing the score corresponding to the number M:";
         }
 
-        //TODO Rebuild
         public static string IndividualTaskB2(int mark)
         {
             int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            const int Zero = 0,
-                Two = 2,
-                Four = 4,
-                Six = 6,
-                Eight = 8,
-                Ten = 10;
-            if (mark < Zero && mark > Ten)
+            if (mark < 0 && mark > 10)
             {
                 throw new ArgumentException("Error, invalid data.Transfer data from 0 to 10");
             }
             string res = "";
-            if (mark >= numbers[Zero] && mark < numbers[Two])
+            if (mark >= numbers[0] && mark < numbers[2])
             {
                 res = "Very bad";
             }
-            else if (mark > numbers[Two] && mark <= numbers[Four])
+            else if (mark > numbers[2] && mark <= numbers[4])
             {
                 res = "Unsatisfactory";
             }
-            else if (mark > numbers[Four] && mark <= numbers[Six])
+            else if (mark > numbers[4] && mark <= numbers[6])
             {
                 res = "Satisfactory";
             }
-            else if (mark > numbers[Six] && mark <= numbers[Eight])
+            else if (mark > numbers[6] && mark <= numbers[8])
             {
                 res = "Good";
             }
-            else if (mark > numbers[Eight] && mark <= numbers[Ten])
+            else if (mark > numbers[8] && mark <= numbers[10])
             {
                 res = "Perfect";
             }

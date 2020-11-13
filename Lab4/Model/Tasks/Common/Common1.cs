@@ -16,34 +16,38 @@ namespace Lab4.Model.Tasks.Common
         {
             return "Count of dragon heads and eyes:";
         }
-        private static int countEyes(int head)
+        private static int CountEyes(int head)
         {
             return head * 2;
         }
-        // Define count of dragon heads and eyes
-        public static string CommonTask1(int year)
+        private static int CountHeads(int years)
         {
-            int startHead = 3, CoefUpTwoHundred = 3, CoefUpTreeHundred = 2;
-            int TwoHundredYear = 200, TreeHundredYear = 300;
-
-            int head;
-            if (year < TwoHundredYear && year > 0)
+            int startHead = 3, coefUpTwoHundred = 3, coefUpTreeHundred = 2;
+            int twoHundredYear = 200, threeHundredYear = 300;
+            int head = 0;
+            if (years < twoHundredYear && years > 0)
             {
-                head = year * CoefUpTwoHundred + startHead;
+                head = years * coefUpTwoHundred + startHead;
             }
-            else if (year >= TwoHundredYear && year < TreeHundredYear)
+            else if (years >= twoHundredYear && years < threeHundredYear)
             {
-                head = TwoHundredYear * CoefUpTwoHundred + (year - TwoHundredYear) * CoefUpTreeHundred + startHead;
+                head = twoHundredYear * coefUpTwoHundred + (years - twoHundredYear) * coefUpTreeHundred + startHead;
             }
-            else if (year >= TreeHundredYear)
+            else if (years >= threeHundredYear)
             {
-                head = TwoHundredYear * CoefUpTwoHundred + (TreeHundredYear - TwoHundredYear) * CoefUpTreeHundred + (year - TreeHundredYear) + startHead;
+                head = twoHundredYear * coefUpTwoHundred + (threeHundredYear - twoHundredYear) * coefUpTreeHundred + (years - threeHundredYear) + startHead;
             }
             else
             {
                 throw new ArgumentException("Error, incorrect data, input number more than 0.");
             }
-            return $"Count heads = {head}, count eyes = {countEyes(head)}";
+            return head;
+        }
+        // Define count of dragon heads and eyes
+        public static string CommonTask1(int years)
+        {
+            int heads = CountHeads(years);
+            return $"Count heads = {heads}, count eyes = {CountEyes(heads)}";
         }
     }
 }

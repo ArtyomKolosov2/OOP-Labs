@@ -1,4 +1,9 @@
-﻿class IndividualB8 : ITask, ITaskInfo
+﻿using Lab4.Model.Tasks.Base;
+using Lab4.Utils;
+using Lab4.Views;
+using System;
+
+class IndividualB8 : ITask, ITaskInfo
 {
     public string Run()
     {

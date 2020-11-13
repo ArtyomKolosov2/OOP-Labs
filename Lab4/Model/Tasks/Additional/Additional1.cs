@@ -21,24 +21,16 @@ namespace Lab4.Model.Tasks.Additional
         }
         private static bool IsLeep(int year)
         {
-            int Four = 4,
-                Hundred = 100,
-                FourHundred = 400;
             bool isLeep = false;
             // leep
-            if (year % Four == 0)
+            if (year % 4 == 0 || (year % 4 == 0 && year % 100 == 0 && year % 400 == 0))
             {
                 isLeep = true;
             }
             // not leep
-            else if (year % Four == 0 && year % Hundred == 0)
+            else if (year % 4 == 0 && year % 100 == 0)
             {
                 isLeep = false;
-            }
-            // leep
-            else if (year % Four == 0 && year % Hundred == 0 && year % FourHundred == 0)
-            {
-                isLeep = true;
             }
             return isLeep;
         }
@@ -48,13 +40,14 @@ namespace Lab4.Model.Tasks.Additional
             // check is leep
             if (IsLeep(year))
             {
-                arrCountDayInMounth[One]++;
+                arrCountDayInMounth[1]++;
             }
-            for (var i = 0; i < arrCountDayInMounth.Length; i++)
+            var i = 0;
+            for (; i < arrCountDayInMounth.Length; i++)
             {
                 if (++i == mounth && day == arrCountDayInMounth[i])
                 {
-                    day = One;
+                    day = 1;
                     mounth++;
                     break;
                 }
@@ -65,7 +58,7 @@ namespace Lab4.Model.Tasks.Additional
             }
             if (mounth == 13)
             {
-                mounth = One;
+                mounth = 1;
                 year++;
             }
             return $"{day} {mounth} {year}";
