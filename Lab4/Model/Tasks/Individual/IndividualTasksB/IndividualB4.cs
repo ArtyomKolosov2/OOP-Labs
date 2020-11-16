@@ -17,7 +17,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
         {
             return "Displays a string describing the specified age, ensuring that the number matches the word \'year\' correctly:";
         }
-        private static string addEnding(int year, string stringNumber)
+        private static string AddEnding(int year, string stringNumber)
         {
             int lower = 1,
                 upper = 4,
@@ -77,7 +77,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
             {
                 throw new Exception("Error, program was broken.Transfer number from 0 to 120");
             }
-            return addEnding(year, stringNumber);
+            return AddEnding(year, stringNumber);
         }
     }
 }

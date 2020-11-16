@@ -20,22 +20,23 @@ namespace Lab4.Model.Tasks.Common
         {
             return head * 2;
         }
+        // TODO rename const
         private static int CountHeads(int years)
         {
-            int startHead = 3, coefUpTwoHundred = 3, coefUpTreeHundred = 2;
-            int twoHundredYear = 200, threeHundredYear = 300;
+            const int STARTHEAD = 3, COEFTWOHUNDRED = 3, coefUpTreeHundred = 2;
+            const int twoHundredYear = 200, threeHundredYear = 300;
             int head = 0;
             if (years < twoHundredYear && years > 0)
             {
-                head = years * coefUpTwoHundred + startHead;
+                head = years * COEFTWOHUNDRED + STARTHEAD;
             }
             else if (years >= twoHundredYear && years < threeHundredYear)
             {
-                head = twoHundredYear * coefUpTwoHundred + (years - twoHundredYear) * coefUpTreeHundred + startHead;
+                head = twoHundredYear * COEFTWOHUNDRED + (years - twoHundredYear) * coefUpTreeHundred + STARTHEAD;
             }
             else if (years >= threeHundredYear)
             {
-                head = twoHundredYear * coefUpTwoHundred + (threeHundredYear - twoHundredYear) * coefUpTreeHundred + (years - threeHundredYear) + startHead;
+                head = twoHundredYear * COEFTWOHUNDRED + (threeHundredYear - twoHundredYear) * coefUpTreeHundred + (years - threeHundredYear) + STARTHEAD;
             }
             else
             {

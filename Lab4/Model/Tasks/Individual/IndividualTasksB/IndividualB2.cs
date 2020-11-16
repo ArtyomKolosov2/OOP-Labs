@@ -24,7 +24,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
             {
                 throw new ArgumentException("Error, invalid data.Transfer data from 0 to 10");
             }
-            string res = "";
+            string res = string.Empty;
             if (mark >= numbers[0] && mark < numbers[2])
             {
                 res = "Very bad";

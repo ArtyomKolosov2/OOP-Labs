@@ -21,7 +21,6 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksA
             return "Determines whether the given sides are sides of a triangle.";
         }
         // Individual A1
-        //TODO FIX LOGIC
         private static bool IsTriangle(double a, double b, double c)
         {
             return a + b > c || b + c > a || a + c > b;
@@ -32,7 +31,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksA
             {
                 throw new ArgumentException("Error, incorrect data.Transfer number more than 0");
             }
-            return "Is these sides are sides of a triangle - " + IsTriangle(aSide, bSide, cSide);
+            return $"Is these sides are sides of a triangle - {IsTriangle(aSide, bSide, cSide)}";
         }
     }
 }

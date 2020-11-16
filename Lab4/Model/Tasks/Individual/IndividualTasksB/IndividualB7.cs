@@ -9,7 +9,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
 {
     class IndividualB7 : ITask, ITaskInfo
     {
-        private static Dictionary<string, Func<double, double, double>> OperationsDict { get; set; } = new Dictionary<string, Func<double, double, double>>
+        private static Dictionary<string, Func<double, double, double>> OperationsDict { get; set; } = new ()
         {
             {"+", new Func<double, double, double>((x1, x2) => x1 + x2)},
             {"-", new Func<double, double, double>((x1, x2) => x1 - x2)},

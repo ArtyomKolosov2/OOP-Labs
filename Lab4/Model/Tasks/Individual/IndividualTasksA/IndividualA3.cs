@@ -7,9 +7,9 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksA
 {
     class IndividualA3 : ITask, ITaskInfo
     {
-        public static string BadMood { get; } = "͡Ò﹏Ó";
-        public static string GoodMood { get; } = "¯＼_(ツ)_/¯";
-        public static string PerfectMood { get; } = "(o˘◡˘o)";
+        public static string BadMood => "͡Ò﹏Ó";
+        public static string GoodMood  => "¯＼_(ツ)_/¯";
+        public static string PerfectMood => "(o˘◡˘o)";
         public string Run()
         {
             ExtractForTasks extract = new ExtractForTasks(InputService.GetInstance(), OutputService.GetInstance());

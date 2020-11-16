@@ -6,6 +6,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
 {
     class IndividualB5 : ITask, ITaskInfo
     {
+        static readonly int[] arrCountDayInMounth = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
         public string Run()
         {
             ExtractForTasks extract = new ExtractForTasks(InputService.GetInstance(), OutputService.GetInstance());
@@ -26,8 +27,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
         }
         public static string IndividualTaskB5(uint mounth, uint year)
         {
-            uint[] arrCountDayInMounth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-            string resData = "";
+            string resData = string.Empty;
             if (IsLeep(year))
             {
                 resData = "Year is leep!";

@@ -20,32 +20,33 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
         //TODO switch case
         public static string IndividualTaskB6(int numberMounth)
         {
-            const int One = 1,
-                Three = 3,
-                Six = 6,
-                Nine = 9,
-                Twelve = 12;
             string resTimeYear = "";
-            if (numberMounth >= One && numberMounth < Three || numberMounth == Twelve)
+            switch (numberMounth)
             {
-                resTimeYear = "Winter";
-            }
-            else if (numberMounth >= Three && numberMounth < Six)
-            {
-                resTimeYear = "Spring";
-            }
-            else if (numberMounth >= Six && numberMounth < Nine)
-            {
-                resTimeYear = "Summer";
-            }
-            else if (numberMounth >= Nine && numberMounth < Twelve)
-            {
-                resTimeYear = "Autumn";
-            }
-            else
-            {
-                throw new Exception("Error, invalid data.");
-            }
+                case 1:
+                case 2:
+                case 12:
+                    resTimeYear = "Winter";
+                    break;
+                case 3:
+                case 4:
+                case 5:
+                    resTimeYear = "Spring";
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    resTimeYear = "Summer";
+                    break;
+                case 9:
+                case 10:
+                case 11:
+                    resTimeYear = "Autumn";
+                    break;
+                default:
+                    throw new ArgumentException("Error, invalid data.");
+                    break;
+            };
             return resTimeYear;
         }
     }
