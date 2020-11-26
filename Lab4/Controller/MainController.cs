@@ -3,16 +3,15 @@ using Lab4.Views;
 using Lab4.Utils;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Lab4.Utils.MyConverter;
 
 namespace Lab4.Controller
 {
     sealed class MainController
     {
-        public List<ITask> Tasks { get; }
-        public IInputService Input { get; }
-        public IOutputService Output { get; }
+        public List<ITask> Tasks { get; set; }
+        public IInputService Input { get; init; }
+        public IOutputService Output { get; init; }
 
         public MainController(List<ITask> tasks, IInputService inputService, IOutputService outputService)
         {
