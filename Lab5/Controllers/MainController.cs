@@ -1,45 +1,48 @@
 ﻿using Lab4.Model.Tasks.Base;
-using Lab4.Views;
-using Lab4.Utils;
+using Lab5.Interfaces;
+using Lab5.Utils;
 using System;
 using System.Collections.Generic;
-using Lab4.Utils.MyConverter;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Lab4.Controller
+namespace Lab5.Controllers
 {
-    sealed class MainController
+    public class MainController
     {
-        public List<ITask> Tasks { get; set; }
+        public List<ITaskResult> Tasks { get; set; }
         public IInputService Input { get; init; }
         public IOutputService Output { get; init; }
 
-
-        public MainController(List<ITask> tasks, IInputService inputService, IOutputService outputService)
+        public TaskExtractor Extractor { get; init; }
+        public MainController(List<ITaskResult> tasks, IInputService inputService, IOutputService outputService)
         {
-            Tasks = tasks;
             Input = inputService;
             Output = outputService;
+            Tasks = tasks;
+            Extractor = new TaskExtractor(outputService, inputService);
         }
 
         public void StartController()
-        {  
+        {
             while (true)
             {
                 ShowTaskMenu();
                 Output.ShowMessage("0 - Exit");
                 Output.ShowMessage("Input number of your task:");
-                int key = Converter.ConvertToInt(Input.GetString());
+                int key = Convert.ToInt32(Input.GetString());
                 if (key == 0)
                 {
                     break;
                 }
-                ITask currentRunTask = GetTaskByIndex(key-1);
-                if (currentRunTask != null)
+                ITaskResult currentTask = GetTaskByIndex(key - 1);
+                if (currentTask != null)
                 {
                     string taskResultString = string.Empty;
                     try
                     {
-                        taskResultString = currentRunTask.Run();
+                        taskResultString = currentTask.GetTaskResult(Extractor);
                     }
                     catch (Exception ex)
                     {
@@ -54,14 +57,14 @@ namespace Lab4.Controller
             }
         }
 
-        private ITask GetTaskByIndex(int index)
+        private ITaskResult GetTaskByIndex(int index)
         {
-            if (index >= 0 && index < Tasks.Count) 
+            if (index >= 0 && index < Tasks.Count)
             {
                 return Tasks[index];
             }
             return null;
-            
+
         }
         private void ShowTaskMenu()
         {
