@@ -1,7 +1,6 @@
 ﻿using Lab5.Utils;
-using System.Collections.Generic;
 
-namespace Lab4.Model.Tasks.Base
+namespace Lab5.Interfaces
 {
     public interface ITaskResult
     {

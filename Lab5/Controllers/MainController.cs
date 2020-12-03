@@ -1,11 +1,7 @@
-﻿using Lab4.Model.Tasks.Base;
-using Lab5.Interfaces;
+﻿using Lab5.Interfaces;
 using Lab5.Utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab5.Controllers
 {
@@ -14,7 +10,6 @@ namespace Lab5.Controllers
         public List<ITaskResult> Tasks { get; set; }
         public IInputService Input { get; init; }
         public IOutputService Output { get; init; }
-
         public TaskExtractor Extractor { get; init; }
         public MainController(List<ITaskResult> tasks, IInputService inputService, IOutputService outputService)
         {
@@ -31,7 +26,11 @@ namespace Lab5.Controllers
                 ShowTaskMenu();
                 Output.ShowMessage("0 - Exit");
                 Output.ShowMessage("Input number of your task:");
-                int key = Convert.ToInt32(Input.GetString());
+                if (!int.TryParse(Input.GetString(), out int key))
+                {
+                    Output.ShowMessage("Error: Invalid task number input");
+                    continue;
+                }
                 if (key == 0)
                 {
                     break;
@@ -76,7 +75,7 @@ namespace Lab5.Controllers
         }
         private void ShowTaskInfo(ITaskInfo taskInfo, int index)
         {
-            Output.ShowMessage($"{index}. {taskInfo.GetInfo()}");
+            Output.ShowMessage($"{index} - {taskInfo.GetInfo()}");
         }
     }
 }

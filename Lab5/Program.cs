@@ -1,10 +1,11 @@
-﻿using Lab4.Model.Tasks.Base;
-using Lab5.Controllers;
+﻿using Lab5.Controllers;
 using Lab5.Interfaces;
 using Lab5.Models.Task_A;
+using Lab5.Models.Task_B;
+using Lab5.Models.Task_C;
+using Lab5.Models.Task_D;
 using Lab5.Utils;
 using Lab5.Views;
-using System;
 using System.Collections.Generic;
 
 namespace Lab5
@@ -19,7 +20,10 @@ namespace Lab5
         {
             List<ITaskResult> tasks = new ()
             {
-                new TaskA5()
+                new TaskA5(),
+                new TaskB5(),
+                new TaskC1(),
+                new TaskD2()
             };
             _mainController = new MainController
             (

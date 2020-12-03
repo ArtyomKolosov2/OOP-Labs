@@ -1,9 +1,5 @@
-﻿using Lab4.Model.Tasks.Base;
+﻿using Lab5.Interfaces;
 using Lab5.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Lab5.Models.Task_A
 {

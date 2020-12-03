@@ -1,4 +1,4 @@
-﻿namespace Lab4.Model.Tasks.Base
+﻿namespace Lab5.Interfaces
 {
     public interface ITaskInfo
     {

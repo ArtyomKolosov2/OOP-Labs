@@ -7,9 +7,6 @@
 
   <ItemGroup>
     <Folder Include="Models\Task E\" />
-    <Folder Include="Models\Task D\" />
-    <Folder Include="Models\Task C\" />
-    <Folder Include="Models\Task B\" />
   </ItemGroup>
 
 </Project>
