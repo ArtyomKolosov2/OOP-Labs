@@ -1,5 +1,6 @@
 ﻿using Lab5.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace Lab5.Utils
 {
@@ -13,30 +14,18 @@ namespace Lab5.Utils
             _inputService = inputService;
         }
 
-        public bool TaskA5(out int number)
+        public bool GetNumber(out int number, string message)
         {
-            _outputService.ShowMessage("Task A5 input");
-            _outputService.ShowMessage("Input number:");
+            _outputService.ShowMessage(message);
             return int.TryParse(_inputService.GetString(), out number);
         }
 
-        public bool TaskB5(out int number)
+        public bool GetNumber(out int number, IEnumerable<string> messages)
         {
-            _outputService.ShowMessage("Task B5 input");
-            _outputService.ShowMessage("Input number:");
-            return int.TryParse(_inputService.GetString(), out number);
-        }
-
-        public bool TaskC1(out int number)
-        {
-            _outputService.ShowMessage("Task C1 input");
-            _outputService.ShowMessage("Input number:");
-            return int.TryParse(_inputService.GetString(), out number);
-        }
-        public bool TaskD2(out int number)
-        {
-            _outputService.ShowMessage("Task D2 input");
-            _outputService.ShowMessage("Input number:");
+            foreach (var message in messages)
+            {
+                _outputService.ShowMessage(message);
+            }
             return int.TryParse(_inputService.GetString(), out number);
         }
     }

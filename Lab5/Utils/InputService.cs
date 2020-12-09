@@ -5,7 +5,7 @@ namespace Lab5.Utils
 {
     public class InputService : IInputService
     {
-        private static readonly object _syncRoot = new object();
+        private static readonly object _syncRoot = new ();
         private static InputService _instance;
         public static InputService GetInstance()
         {

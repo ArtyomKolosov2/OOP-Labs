@@ -1,21 +1,22 @@
 ﻿using Lab5.Interfaces;
 using Lab5.Utils;
 using System;
+using System.Collections.Generic;
 
-namespace Lab5.Models.Task_A
+namespace Lab5.Models.Task_D
 {
-    public class TaskA5 : ITaskResult, ITaskInfo
+    public class TaskD1 : ITaskResult, ITaskInfo
     {
         public string GetInfo()
         {
-            return "Counts amount of even number in another number";
+            return "Finds the largest number in another number";
         }
         public string GetTaskResult(TaskExtractor extractor)
         {
             string taskResult;
             if (extractor.GetNumber(out int number, "Input number:"))
             {
-                taskResult = $"Amount of even number in {number} = {GetAmountOfEvenNumber(number)}";
+                taskResult = $"Max number in {number} = {FindOriginalNumberCount(number)}";
             }
             else
             {
@@ -23,15 +24,18 @@ namespace Lab5.Models.Task_A
             }
             return taskResult;
         }
-        public static int GetAmountOfEvenNumber(int originalNumber)
+        public static int FindOriginalNumberCount(int originalNumber)
         {
+            const int NUMBER_LIST_SIZE = 10;
             var count = 0;
             originalNumber = Math.Abs(originalNumber);
+            var foundNumbers = new List<int>(NUMBER_LIST_SIZE);
             while (originalNumber > 0)
             {
-                var nextNumber = originalNumber % 10;
-                if (nextNumber % 2 == 0)
+                int nextNumber = originalNumber % 10;
+                if (!foundNumbers.Contains(nextNumber))
                 {
+                    foundNumbers.Add(nextNumber);
                     count++;
                 }
                 originalNumber /= 10;

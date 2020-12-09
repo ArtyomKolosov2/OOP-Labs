@@ -1,5 +1,7 @@
 ﻿using Lab5.Interfaces;
 using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Lab5.Views
 {
@@ -28,6 +30,15 @@ namespace Lab5.Views
         public void ShowMessage(string msg)
         {
             Console.WriteLine(msg);
+        }
+        public static string ConvertIEnumerableToString<T>(IEnumerable<T> enumerable)
+        {
+            var builder = new StringBuilder();
+            foreach (var element in enumerable)
+            {
+                builder.AppendFormat("{0} ", element);
+            }
+            return builder.ToString();
         }
     }
 }

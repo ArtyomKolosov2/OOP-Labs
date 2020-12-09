@@ -2,19 +2,20 @@
 using Lab5.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Lab5.Controllers
 {
     public class MainController
     {
         public List<ITaskResult> Tasks { get; set; }
-        public IInputService Input { get; init; }
-        public IOutputService Output { get; init; }
+        public IInputService InputService { get; init; }
+        public IOutputService OutputService { get; init; }
         public TaskExtractor Extractor { get; init; }
         public MainController(List<ITaskResult> tasks, IInputService inputService, IOutputService outputService)
         {
-            Input = inputService;
-            Output = outputService;
+            InputService = inputService;
+            OutputService = outputService;
             Tasks = tasks;
             Extractor = new TaskExtractor(outputService, inputService);
         }
@@ -24,11 +25,10 @@ namespace Lab5.Controllers
             while (true)
             {
                 ShowTaskMenu();
-                Output.ShowMessage("0 - Exit");
-                Output.ShowMessage("Input number of your task:");
-                if (!int.TryParse(Input.GetString(), out int key))
+                OutputService.ShowMessage("0 - Exit");
+                if (!Extractor.GetNumber(out int key, "Input number of your task: "))
                 {
-                    Output.ShowMessage("Error: Invalid task number input");
+                    OutputService.ShowMessage("Error: Invalid task number input");
                     continue;
                 }
                 if (key == 0)
@@ -36,9 +36,9 @@ namespace Lab5.Controllers
                     break;
                 }
                 ITaskResult currentTask = GetTaskByIndex(key - 1);
-                if (currentTask != null)
+                if (currentTask is not null)
                 {
-                    string taskResultString = string.Empty;
+                    string taskResultString;
                     try
                     {
                         taskResultString = currentTask.GetTaskResult(Extractor);
@@ -47,11 +47,11 @@ namespace Lab5.Controllers
                     {
                         taskResultString = ex.Message;
                     }
-                    Output.ShowMessage(taskResultString);
+                    OutputService.ShowMessage(taskResultString);
                 }
                 else
                 {
-                    Output.ShowMessage("Error: Wrong input!");
+                    OutputService.ShowMessage("Error: Wrong input!");
                 }
             }
         }
@@ -68,14 +68,14 @@ namespace Lab5.Controllers
         private void ShowTaskMenu()
         {
             var i = 1;
-            foreach (var info in Tasks)
+            foreach (var info in Tasks.OfType<ITaskInfo>())
             {
-                ShowTaskInfo((ITaskInfo)info, i++);
+                ShowTaskInfo(info, i++);
             }
         }
         private void ShowTaskInfo(ITaskInfo taskInfo, int index)
         {
-            Output.ShowMessage($"{index} - {taskInfo.GetInfo()}");
+            OutputService.ShowMessage($"{index} - {taskInfo.GetInfo()}");
         }
     }
 }

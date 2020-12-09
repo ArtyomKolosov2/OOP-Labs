@@ -1,5 +1,6 @@
 ﻿using Lab5.Interfaces;
 using Lab5.Utils;
+using System;
 
 namespace Lab5.Models.Task_B
 {
@@ -11,17 +12,26 @@ namespace Lab5.Models.Task_B
         }
         public string GetTaskResult(TaskExtractor extractor)
         {
-            extractor.TaskB5(out int number);
-            return $"Is there more evens than odd in {number} = {IsEvenNumsPrevail(number)}";
+            string taskResult;
+            if (extractor.GetNumber(out int number, "Input number:"))
+            {
+                taskResult = $"Is there more evens than odd in {number} = {IsEvenNumsPrevail(number)}";
+            }
+            else
+            {
+                taskResult = $"Input Error!";
+            }
+            return taskResult;
 
         }
-        public bool IsEvenNumsPrevail(int originalNumber)
+        public static bool IsEvenNumsPrevail(int originalNumber)
         {
-            int evenCount = 0;
-            int oddCount = 0;
+            var evenCount = 0;
+            var oddCount = 0;
+            originalNumber = Math.Abs(originalNumber);
             while (originalNumber > 0)
             {
-                int nextNumber = originalNumber % 10;
+                var nextNumber = originalNumber % 10;
                 if (nextNumber % 2 == 0)
                 {
                     evenCount++;

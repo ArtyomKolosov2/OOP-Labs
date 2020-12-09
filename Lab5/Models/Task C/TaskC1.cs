@@ -1,5 +1,6 @@
 ﻿using Lab5.Interfaces;
 using Lab5.Utils;
+using System;
 
 namespace Lab5.Models.Task_C
 {
@@ -11,18 +12,28 @@ namespace Lab5.Models.Task_C
         }
         public string GetTaskResult(TaskExtractor extractor)
         {
-            extractor.TaskC1(out int number);
-            return $"Is {number} contains sequence = {IsContainSequence(number)}";
+            string taskResult;
+            if (extractor.GetNumber(out int number, "Input number:"))
+            {
+                taskResult = $"Is {number} contains sequence = {IsContainSequence(number)}";
+            }
+            else
+            {
+                taskResult = $"Input Error!";
+            }
+            return taskResult;
 
         }
-        public bool IsContainSequence(int originalNumber)
+        public static bool IsContainSequence(int originalNumber)
         {
-            int number = originalNumber % 10;
+            originalNumber = Math.Abs(originalNumber);
+            var number = originalNumber % 10;
             int nextNumber = originalNumber;
             const int MAX_NATURAL_NUMBER = 0;
-            bool isGreater = false;
-            bool isLower = false;
-            bool result = true;
+            var isGreater = false;
+            var isLower = false;
+            var result = true;
+
             while (nextNumber > 0 && nextNumber / 10 > MAX_NATURAL_NUMBER)
             {
                 nextNumber /= 10;
