@@ -26,8 +26,12 @@ namespace Lab5.Models.Task_D
         }
         public static int FindOriginalNumberCount(int originalNumber)
         {
-            const int NUMBER_LIST_SIZE = 10;
+            if (originalNumber == 0)
+            {
+                return 1;
+            }
             var count = 0;
+            const int NUMBER_LIST_SIZE = 10;
             originalNumber = Math.Abs(originalNumber);
             var foundNumbers = new List<int>(NUMBER_LIST_SIZE);
             while (originalNumber > 0)

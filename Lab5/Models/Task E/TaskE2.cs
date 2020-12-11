@@ -17,7 +17,7 @@ namespace Lab5.Models.Task_E
             string taskResult;
             if (extractor.GetNumber(out int number, new string[] {"Input number", "Input number must be greater than zero:" }) && number > 0)
             {
-                taskResult = $"Fibonachi sequence = {OutputService.ConvertIEnumerableToString(FindFibonachi(number))}";
+                taskResult = $"Fibonachi sequence = {OutputService.ConvertIEnumerableToString(FindFibonachiSequence(number))}";
             }
             else
             {
@@ -25,7 +25,7 @@ namespace Lab5.Models.Task_E
             }
             return taskResult;
         }
-        public static IEnumerable<int> FindFibonachi(int position)
+        public static IEnumerable<int> FindFibonachiSequence(int position)
         {
             if (position < 0)
             {

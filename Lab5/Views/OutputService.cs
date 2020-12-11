@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Lab5.Views
 {
-    class OutputService : IOutputService
+    public class OutputService : IOutputService
     {
         private static readonly object _syncRoot = new object();
         private static OutputService _instance;
