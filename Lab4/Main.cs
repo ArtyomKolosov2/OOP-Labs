@@ -10,10 +10,10 @@ using Lab4.Model.Tasks.Individual.IndividualTasksB;
 
 namespace Lab4
 {
-    class Program
+    static class Program
     {
-        private static IInputService _inputService = InputService.GetInstance();
-        private static IOutputService _outputService = OutputService.GetInstance();
+        private static readonly IInputService _inputService = InputService.GetInstance();
+        private static readonly IOutputService _outputService = OutputService.GetInstance();
         private static MainController _mainController;
 
         public static void Main(string[] args)
