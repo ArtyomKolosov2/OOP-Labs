@@ -58,11 +58,7 @@ namespace Lab5.Controllers
 
         private ITaskResult GetTaskByIndex(int index)
         {
-            if (index >= 0 && index < Tasks.Count)
-            {
-                return Tasks[index];
-            }
-            return null;
+            return Tasks.ElementAtOrDefault(index);
 
         }
         private void ShowTaskMenu()
