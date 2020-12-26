@@ -25,7 +25,7 @@ namespace Lab4.Model.Tasks.Common
         {
             const int STARTHEAD = 3, COEFTWOHUNDRED = 3, coefUpTreeHundred = 2;
             const int twoHundredYear = 200, threeHundredYear = 300;
-            int head = 0;
+            int head;
             if (years < twoHundredYear && years > 0)
             {
                 head = years * COEFTWOHUNDRED + STARTHEAD;

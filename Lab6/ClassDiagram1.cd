@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Lab6.Program">
+    <Position X="8" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgACAAAAAAAAAABAAgAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab6.Controllers.MainController">
+    <Position X="11.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAADAAAAAABAAAICAAIAIAAAAA=</HashCode>
+      <FileName>Controllers\MainController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab6.Utils.TaskExtractor">
+    <Position X="9.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQgAAAAAAAAAAAAAABgAAE=</HashCode>
+      <FileName>Utils\TaskExtractor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab6.Models.Individual.TaskIndividual1" Collapsed="true">
+    <Position X="3.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAEAAAAAAAAABQAA=</HashCode>
+      <FileName>Models\Individual\TaskIndividual1.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lab6.Models.Individual.TaskIndividual2" Collapsed="true">
+    <Position X="3.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEACAAAAAAABAAA=</HashCode>
+      <FileName>Models\Individual\TaskIndividual2.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lab6.Utils.InputService" Collapsed="true">
+    <Position X="8" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAABAAABAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utils\InputService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lab6.Views.OutputService" Collapsed="true">
+    <Position X="9.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAgAQAAAAAAAAAAAAAAABAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\OutputService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Lab6.Interfaces.IInputService" Collapsed="true">
+    <Position X="8" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IInputService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Lab6.Interfaces.IOutputService" Collapsed="true">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IOutputService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Lab6.Interfaces.ITaskInfo">
+    <Position X="5.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ITaskInfo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Lab6.Interfaces.ITaskResult">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Interfaces\ITaskResult.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

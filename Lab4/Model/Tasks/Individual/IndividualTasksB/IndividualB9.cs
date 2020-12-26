@@ -37,7 +37,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
                 resValue += $"{YearsDict[hundreds]} {YearsDict[HUNDRED]}";
                 if (remains / TEN > 0 && remains > TWENTY)// from 20 to 100
                 {
-                    resValue += $"{YearsDict[remains / TEN * TEN]} {YearsDict[remains % TEN]}";
+                    resValue += $" {YearsDict[remains / TEN * TEN]} {YearsDict[remains % TEN]}";
                 }
                 else if (remains >= 0)// from 0 to 20
                 {

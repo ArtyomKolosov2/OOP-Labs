@@ -8,7 +8,7 @@ namespace Lab5.Models.Task_B
     {
         public string GetInfo()
         {
-            return "Finds out whether even numbers prevail in another number";
+            return "Finds out whether even numbers prevail in another number (B5)";
         }
         public string GetTaskResult(TaskExtractor extractor)
         {

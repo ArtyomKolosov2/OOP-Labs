@@ -21,8 +21,10 @@ namespace Lab6.Models.Individual
 
                 OutputService.ConvertIEnumerableToString(arr);
 
-                taskResult = $"Max number in the vector = { arr.Max() }\n" +
-                             $"Sum elements before last positive = { Math.Round(SumElementsBeforeLastPositive(arr), 2) }";
+                taskResult = string.Concat(
+                    $"{OutputService.ConvertIEnumerableToString(arr)} \nThe sum of the negative elements =",
+                    $"Max number in the vector = { arr.Max() }\n" +         
+                    $"Sum elements before last positive = { Math.Round(SumElementsBeforeLastPositive(arr), 2) }");
             }
             else
             {

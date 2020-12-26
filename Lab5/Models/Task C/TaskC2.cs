@@ -8,7 +8,7 @@ namespace Lab5.Models.Task_C
     {
         public string GetInfo()
         {
-            return "Finds out if the number is a palindrome";
+            return "Finds out if the number is a palindrome (C2)";
         }
         public string GetTaskResult(TaskExtractor extractor)
         {

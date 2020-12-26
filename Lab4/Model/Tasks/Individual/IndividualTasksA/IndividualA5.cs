@@ -19,7 +19,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksA
         // Individual A5 - Simulator of pies with a surprise
         public static string IndividualTaskA5(int index)
         {
-            string[] listSurprise = new string[]
+            var listSurprise = new string[]
             {    
                 "Remember that every day is the first day of the rest of your life.",
                  "In life, there is a main thing and not the main thing, and we often spend our energy on trifles.",

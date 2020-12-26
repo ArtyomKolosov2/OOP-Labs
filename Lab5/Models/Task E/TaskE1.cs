@@ -8,7 +8,7 @@ namespace Lab5.Models.Task_E
     {
         public string GetInfo()
         {
-            return "Finds fibonachi at some position";
+            return "Finds fibonachi at some position (E1)";
         }
         public string GetTaskResult(TaskExtractor extractor)
         {

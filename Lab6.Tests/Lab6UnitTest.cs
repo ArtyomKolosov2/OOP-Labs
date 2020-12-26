@@ -53,10 +53,9 @@ namespace Lab6.Tests
         }
 
         [Test]
-        [TestCase(new double[] { })]
-        public void TaskIndividual1FindMultiply_ArrayIsEmpty(double[] array)
+        public void TaskIndividual1FindMultiply_ArrayIsEmpty()
         {
-            Assert.Throws<ArgumentException>(() => TaskIndividual1.FindMultiplyOfElementsBetweenMaxAndMin(array));
+            Assert.Throws<ArgumentException>(() => TaskIndividual1.FindMultiplyOfElementsBetweenMaxAndMin(Array.Empty<double>()));
         }
 
         [Test]

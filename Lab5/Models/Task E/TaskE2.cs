@@ -10,7 +10,7 @@ namespace Lab5.Models.Task_E
     {
         public string GetInfo()
         {
-            return "Finds part of fibonachi sequence";
+            return "Finds part of fibonachi sequence (E2)";
         }
         public string GetTaskResult(TaskExtractor extractor)
         {

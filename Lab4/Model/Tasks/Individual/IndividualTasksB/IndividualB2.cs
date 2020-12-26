@@ -19,12 +19,12 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
 
         public static string IndividualTaskB2(int mark)
         {
-            int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            var numbers = new int[]{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
             if (mark < 0 && mark > 10)
             {
                 throw new ArgumentException("Error, invalid data.Transfer data from 0 to 10");
             }
-            string res = string.Empty;
+            var res = string.Empty;
             if (mark >= numbers[0] && mark < numbers[2])
             {
                 res = "Very bad";

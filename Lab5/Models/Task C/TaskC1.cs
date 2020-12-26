@@ -8,7 +8,7 @@ namespace Lab5.Models.Task_C
     {
         public string GetInfo()
         {
-            return "Finds out if the number contains a sequence";
+            return "Finds out if the number contains a sequence (C1)";
         }
         public string GetTaskResult(TaskExtractor extractor)
         {

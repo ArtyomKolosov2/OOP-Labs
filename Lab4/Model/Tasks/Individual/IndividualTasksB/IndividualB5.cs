@@ -9,12 +9,12 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
         static readonly int[] arrCountDayInMounth = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
         public string Run()
         {
-            ExtractForTasks extract = new ExtractForTasks(InputService.GetInstance(), OutputService.GetInstance());
+            var extract = new ExtractForTasks(InputService.GetInstance(), OutputService.GetInstance());
 
             uint[] arrValue = extract.IndividualB5();
             uint year = arrValue[0],
                 mounth = arrValue[1];
-            return IndividualTaskB5(year, mounth);
+            return IndividualTaskB5(mounth, year);
         }
         public string GetInfo()
         {
@@ -27,7 +27,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
         }
         public static string IndividualTaskB5(uint mounth, uint year)
         {
-            string resData = string.Empty;
+            string resData;
             if (IsLeep(year))
             {
                 resData = "Year is leep!";

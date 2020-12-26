@@ -8,7 +8,7 @@ namespace Lab5.Models.Task_A
     {
         public string GetInfo()
         {
-            return "Counts amount of even number in another number";
+            return "Counts amount of even number in another number (A5)";
         }
         public string GetTaskResult(TaskExtractor extractor)
         {

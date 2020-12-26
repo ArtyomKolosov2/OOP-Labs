@@ -9,14 +9,14 @@ namespace Lab5.Models.Task_D
     {
         public string GetInfo()
         {
-            return "Finds the largest number in another number";
+            return "Find the number of different digits of a given natural number (D1)";
         }
         public string GetTaskResult(TaskExtractor extractor)
         {
             string taskResult;
             if (extractor.GetNumber(out int number, "Input number:"))
             {
-                taskResult = $"Max number in {number} = {FindOriginalNumberCount(number)}";
+                taskResult = $"Count of original mubers in {number} = {FindOriginalNumberCount(number)}";
             }
             else
             {

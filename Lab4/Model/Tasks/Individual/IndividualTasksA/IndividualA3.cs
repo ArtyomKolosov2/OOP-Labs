@@ -23,7 +23,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksA
         // Individual A3 - Mood sensor
         public static string IndividualTaskA3(int mood)
         {
-            string smile = string.Empty;
+            string smile;
             if (mood >= 0 && mood < 33)
             {
                 smile = BadMood;

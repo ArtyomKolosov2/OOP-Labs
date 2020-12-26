@@ -10,17 +10,16 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
     {
         public string Run()
         {
-            ExtractForTasks extract = new ExtractForTasks(InputService.GetInstance(), OutputService.GetInstance());
+            var extract = new ExtractForTasks(InputService.GetInstance(), OutputService.GetInstance());
             return IndividualTaskB6(extract.IndividualB6());
         }
         public string GetInfo()
         {
             return "Displays the name of the corresponding time of year according to the day of the month:";
         }
-        //TODO switch case
         public static string IndividualTaskB6(int numberMounth)
         {
-            string resTimeYear = "";
+            string resTimeYear;
             switch (numberMounth)
             {
                 case 1:
@@ -45,8 +44,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
                     break;
                 default:
                     throw new ArgumentException("Error, invalid data.");
-                    break;
-            };
+            }
             return resTimeYear;
         }
     }

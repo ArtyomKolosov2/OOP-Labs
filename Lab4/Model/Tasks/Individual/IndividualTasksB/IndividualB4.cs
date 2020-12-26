@@ -23,7 +23,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
                 upper = 4,
                 coefFactor = 10,
                 exceptionalYear = 1;
-            string resYear = "";
+            string resYear;
             if (year == exceptionalYear)
             {
                 resYear = stringNumber + " year";
@@ -38,11 +38,10 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
             }
             else
             {
-                throw new Exception();
+                throw new ArgumentException();
             }
             return resYear;
         }
-        //TODO Replace const
         public static string IndividualTaskB4(int year)
         {
             Dictionary<int, string> dictYears = new Dictionary<int, string>
@@ -75,7 +74,7 @@ namespace Lab4.Model.Tasks.Individual.IndividualTasksB
             }
             else
             {
-                throw new Exception("Error, program was broken.Transfer number from 0 to 120");
+                throw new ArgumentException("Error, program was broken.Transfer number from 0 to 120");
             }
             return AddEnding(year, stringNumber);
         }

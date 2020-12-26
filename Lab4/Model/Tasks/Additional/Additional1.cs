@@ -8,7 +8,7 @@ namespace Lab4.Model.Tasks.Additional
     {
         public string Run()
         {
-            ExtractForTasks extract = new ExtractForTasks(InputService.GetInstance(), OutputService.GetInstance());
+            var extract = new ExtractForTasks(InputService.GetInstance(), OutputService.GetInstance());
             int[] arrValue = extract.Additional1();
             int day = arrValue[0],
                 mounth = arrValue[1],

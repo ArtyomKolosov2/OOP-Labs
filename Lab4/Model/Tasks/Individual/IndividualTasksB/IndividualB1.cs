@@ -2,14 +2,14 @@
 using Lab4.Utils;
 using Lab4.Views;
 using System;
-using System.Collections.Generic;
+
 namespace Lab4.Model.Tasks.Individual.IndividualTasksB
 {
     class IndividualB1 : ITask, ITaskInfo
     {
         public string Run()
         {
-            ExtractForTasks extract = new ExtractForTasks(InputService.GetInstance(), OutputService.GetInstance());
+            var extract = new ExtractForTasks(InputService.GetInstance(), OutputService.GetInstance());
             return IndividualTaskB1((DayOfWeek)extract.IndividualB1());
         }
         public string GetInfo()

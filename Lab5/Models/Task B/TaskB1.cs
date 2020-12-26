@@ -8,7 +8,7 @@ namespace Lab5.Models.Task_B
     {
         public string GetInfo()
         {
-            return "Finds if number contains only even numbers";
+            return "Finds if number contains only even numbers (B1)";
         }
         public string GetTaskResult(TaskExtractor extractor)
         {

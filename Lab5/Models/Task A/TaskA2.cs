@@ -8,7 +8,7 @@ namespace Lab5.Models.Task_A
     {
         public string GetInfo()
         {
-            return "Counts sum of numbers in another number";
+            return "Counts sum of numbers in another number (A2)";
         }
         public string GetTaskResult(TaskExtractor extractor)
         {
